@@ -1,3 +1,3 @@
 # Trackit
 
-### Acompanhamneto dos seus hábitos!
+### Acompanhamento dos seus hábitos!
