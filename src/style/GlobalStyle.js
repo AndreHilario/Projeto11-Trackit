@@ -2,7 +2,7 @@ import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
     input {
-            background: #FFFFFF;
+            background: ${(props) => props.disabled ? "#D2D2D2" : "#FFFFFF"};
             border: 1px solid #D4D4D4;
             border-radius: 5px;
             height: 45px;
@@ -15,8 +15,8 @@ const GlobalStyle = createGlobalStyle`
             display: flex;
             align-items: center;
             &::placeholder{
-			    color: #DBDBDB;
-		    }
+		color: #DBDBDB;
+	    }
         }`;
 
 export default GlobalStyle;

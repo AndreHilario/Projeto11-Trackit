@@ -29,6 +29,7 @@ export const ButtonRegister = styled.button`
     font-size: 20px;
     color: #FFFFFF;
     text-align: center;
+    opacity: ${(props) => props.disabled ? 0.7 : 1};
 
 `;
 
@@ -41,3 +42,11 @@ export const LoginLink = styled.div`
     text-decoration: underline #52B6FF;
     text-align: center;
 `;    
+
+export const Dots = styled.div`
+    width: 51px;
+    height: 13px;
+    position: absolute;
+    left: 170px;
+    top: 475px;
+`
