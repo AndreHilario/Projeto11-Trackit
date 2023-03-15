@@ -15,8 +15,8 @@ const GlobalStyle = createGlobalStyle`
             display: flex;
             align-items: center;
             &::placeholder{
-		color: #DBDBDB;
-	    }
-        }`;
-
+		        color: #DBDBDB;
+	        }
+    }
+`;
 export default GlobalStyle;
