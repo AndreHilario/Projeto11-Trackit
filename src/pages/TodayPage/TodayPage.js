@@ -36,7 +36,7 @@ export default function TodayPage() {
                         <CheckCard>
                             <h5>{h.name}</h5>
                             <p>Sequência atual: {h.currentSequence}</p>
-                            <p>Seu recorde: {h.hghestSequence}</p>
+                            <p>Seu recorde: {h.highestSequence}</p>
                         </CheckCard>
                     )
                 })}

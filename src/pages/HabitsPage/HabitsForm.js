@@ -1,15 +1,16 @@
-import { CreateHabitMenu, DaysContainer, FormConatiner, ButtonDays, ButtonsContainer } from "./styled";
+import { CreateHabitMenu, DaysContainer, FormConatiner, ButtonDays, ButtonsContainer, DotsLogin } from "./styled";
 import { idDays } from "../../constants/days";
 import { useState } from "react";
 import axios from "axios";
 import { URL_API } from "../../constants/urls";
+import { ThreeDots } from "react-loader-spinner";
 
-
-export default function HabistForm({ setNewHabit }) {
+export default function HabistForm({ setNewHabit, config, setReloadPage }) {
 
     const [habitName, setHabitName] = useState("");
     const [selectedDay, setSelectedDay] = useState([]);
-    const [disabled, setDisabled] = useState(true);
+    const [disabled, setDisabled] = useState(false);
+    let counter = 0;
 
     function choseDay(id) {
         if (selectedDay.includes(id)) {
@@ -24,17 +25,27 @@ export default function HabistForm({ setNewHabit }) {
     }
 
     function salveNewHabit() {
-        setDisabled(true);
 
         const body = {
             name: habitName,
             days: selectedDay
         }
 
+        setDisabled(true);
+
         axios
-            .post(`${URL_API}`, body)
-            .then()
-            .catch((err) => alert(err.response.message))
+            .post(`${URL_API}/habits`, body, config)
+            .then(() => {
+                setDisabled(false)
+                setHabitName("")
+                setSelectedDay([])
+                setNewHabit("")
+                setReloadPage(counter + 1)
+            })
+            .catch((err) => {
+                setDisabled(false)
+                alert(err.response.message)
+            })
     }
 
     return (
@@ -57,9 +68,9 @@ export default function HabistForm({ setNewHabit }) {
                     )
                 })}
             </DaysContainer>
-            <ButtonsContainer>
+            <ButtonsContainer disabled={disabled}>
                 <button onClick={cancelNewHabit}>Cancelar</button>
-                <button onClick={salveNewHabit}>Salvar</button>
+                <button onClick={salveNewHabit}>{!disabled ? "Salvar" : <DotsLogin><ThreeDots color="#FFFFFF" /></DotsLogin>}</button>
             </ButtonsContainer>
         </CreateHabitMenu>
     )

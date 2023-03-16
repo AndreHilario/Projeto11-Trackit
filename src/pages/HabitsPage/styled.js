@@ -101,6 +101,7 @@ export const ButtonsContainer = styled.div`
         font-family: 'Lexend Deca', sans-serif;
         font-size: 16px;
         border: 1px solid #FFFFFF;
+        opacity: ${(props) => props.disabled ? 0.7 : 1};
     }
 
     button:nth-child(2) {
@@ -113,5 +114,45 @@ export const ButtonsContainer = styled.div`
         border: 1px solid #52B6FF;
         border-radius: 5px;
         margin-top: 5px;
+        opacity: ${(props) => props.disabled ? 0.7 : 1};
+        position: relative;
     }
+`;
+
+export const ContainerHabit = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #FFFFFF;
 `
+
+export const HabitInfos = styled.div`
+    font-family: 'Lexend Deca', sans-serif;
+    color: #666666;
+    position: relative;
+    width: 340px;
+    height: 91px;
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    h5 {
+        font-size: 20px;
+        margin-top: 13px;
+        margin-left: 15px;
+        margin-bottom: 7px;
+        position: absolute;
+    }
+    img {
+        position: absolute;
+        top: 11px;
+        right: 11px;
+    }
+`;
+
+export const DotsLogin = styled.div`
+    width: 51px;
+    height: 13px;
+    margin-bottom: 20px;
+    position: absolute;
+    left: 15px;
+    bottom: 23px;
+`;
