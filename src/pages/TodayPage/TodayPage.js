@@ -33,7 +33,7 @@ export default function TodayPage() {
                 </MainHeaderToday>
                 {habitsToday.map((h) => {
                     return (
-                        <CheckCard>
+                        <CheckCard key={h.id}>
                             <h5>{h.name}</h5>
                             <p>Sequência atual: {h.currentSequence}</p>
                             <p>Seu recorde: {h.highestSequence}</p>

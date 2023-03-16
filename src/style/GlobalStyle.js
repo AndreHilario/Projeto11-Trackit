@@ -14,6 +14,7 @@ const GlobalStyle = createGlobalStyle`
             line-height: 25px;
             display: flex;
             align-items: center;
+            color: #666666;
             &::placeholder{
 		        color: #DBDBDB;
 	        }

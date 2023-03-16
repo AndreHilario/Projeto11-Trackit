@@ -54,6 +54,7 @@ export const CreateHabitMenu = styled.div`
     height: 180px;
     border-radius: 5px;
     margin: 0 auto;
+    margin-bottom: 10px;
 
     display: flex;
     flex-direction: column;
@@ -123,7 +124,6 @@ export const ContainerHabit = styled.div`
     display: flex;
     flex-direction: column;
     gap: 10px;
-    background-color: #FFFFFF;
 `
 
 export const HabitInfos = styled.div`
@@ -136,10 +136,9 @@ export const HabitInfos = styled.div`
     border-radius: 5px;
     h5 {
         font-size: 20px;
-        margin-top: 13px;
-        margin-left: 15px;
-        margin-bottom: 7px;
         position: absolute;
+        top: 13px;
+        left: 15px;
     }
     img {
         position: absolute;
@@ -156,3 +155,10 @@ export const DotsLogin = styled.div`
     left: 15px;
     bottom: 23px;
 `;
+
+export const DaysContainerCreated = styled.div`
+    display: flex;
+    gap: 5px;
+    margin-left: 14px;
+    margin-top: 46px;
+`

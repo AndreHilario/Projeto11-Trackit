@@ -2,18 +2,19 @@ import { useState, useEffect } from "react";
 import Header from "../../components/Header";
 import Menu from "../../components/Menu";
 import HabistForm from "./HabitsForm";
-import { HabitsContainer, MainContent, Main, MainHeader, ContainerHabit, HabitInfos, ButtonDays } from "./styled";
+import { HabitsContainer, MainContent, Main, MainHeader, ContainerHabit, HabitInfos, DaysContainerCreated, ButtonDays } from "./styled";
 import { URL_API } from "../../constants/urls";
 import useAuthTo from "../../context/useAuthTo";
 import axios from "axios";
 import trash from "../../assets/Delete.png"
+import { idDays } from "../../constants/days";
 
 export default function HabitsPage() {
 
     const [newHabit, setNewHabit] = useState("");
     const [habits, setHabits] = useState([]);
     const [reloadPage, setReloadPage] = useState(0);
-    
+
     const { auth } = useAuthTo();
 
     const config = {
@@ -28,7 +29,7 @@ export default function HabitsPage() {
     }, [reloadPage])
 
     function createHabit() {
-        setNewHabit(<HabistForm setNewHabit={setNewHabit} config={config} setReloadPage={setReloadPage}/>)
+        setNewHabit(<HabistForm setNewHabit={setNewHabit} config={config} setReloadPage={setReloadPage} />)
     }
 
     return (
@@ -44,10 +45,21 @@ export default function HabitsPage() {
                     {newHabit}
                     <ContainerHabit>
                         {habits.map((habit) => {
-                            <HabitInfos key={habit.id}>
-                                <h5>{habit.name}</h5>
-                                <img src={trash} alt="Ícone de deletar" />
-                            </HabitInfos>
+                            return (
+                                <HabitInfos key={habit.id}>
+                                    <h5>{habit.name}</h5>
+                                    <img src={trash} alt="Ícone de deletar" />
+                                    <DaysContainerCreated>
+                                        {idDays.map((d) => {
+                                            return (
+                                                <ButtonDays 
+                                                    key={d.id}>{d.name}
+                                                </ButtonDays>
+                                            )
+                                        })}
+                                    </DaysContainerCreated>
+                                </HabitInfos>
+                            )
                         })}
                     </ContainerHabit>
                     {habits.length === 0 ? <p>Você não tem nenhum hábito cadastrado ainda. Adicione um hábito para começar a trackear!</p> : ""}
