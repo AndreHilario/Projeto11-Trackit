@@ -5,12 +5,13 @@ import axios from "axios";
 import { URL_API } from "../../constants/urls";
 import { ThreeDots } from "react-loader-spinner";
 
-export default function HabistForm({ setNewHabit, config, setReloadPage }) {
+export default function HabistForm({ setNewHabit, config, setReloadPage, reloadPage }) {
 
     const [habitName, setHabitName] = useState("");
     const [selectedDay, setSelectedDay] = useState([]);
     const [disabled, setDisabled] = useState(false);
-    let counter = 0;
+
+    console.log(habitName)
 
     function choseDay(id) {
         if (selectedDay.includes(id)) {
@@ -21,7 +22,7 @@ export default function HabistForm({ setNewHabit, config, setReloadPage }) {
     }
 
     function cancelNewHabit() {
-        setNewHabit("")
+        setNewHabit(false)
     }
 
     function salveNewHabit() {
@@ -39,8 +40,9 @@ export default function HabistForm({ setNewHabit, config, setReloadPage }) {
                 setDisabled(false)
                 setHabitName("")
                 setSelectedDay([])
-                setNewHabit("")
-                setReloadPage(counter + 1)
+                setNewHabit(false)
+                let counter = reloadPage + 1;
+                setReloadPage(counter)
             })
             .catch((err) => {
                 setDisabled(false)

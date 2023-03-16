@@ -11,7 +11,7 @@ import { idDays } from "../../constants/days";
 
 export default function HabitsPage() {
 
-    const [newHabit, setNewHabit] = useState("");
+    const [newHabit, setNewHabit] = useState(false);
     const [habits, setHabits] = useState([]);
     const [reloadPage, setReloadPage] = useState(0);
 
@@ -29,7 +29,20 @@ export default function HabitsPage() {
     }, [reloadPage])
 
     function createHabit() {
-        setNewHabit(<HabistForm setNewHabit={setNewHabit} config={config} setReloadPage={setReloadPage} />)
+        setNewHabit(true)
+    }
+
+    function deleteHabits(id) {
+        let mensagem = "Você realmente gostaria de apagar o hábito?"
+        if(window.confirm(mensagem)){
+            axios
+                .delete(`${URL_API}/habits/${id}`, config)
+                .then(() => {
+                    let counter = reloadPage + 1;
+                    setReloadPage(counter)
+                })
+                .catch((err) => console.log(err.response.message))
+        }
     }
 
     return (
@@ -42,17 +55,17 @@ export default function HabitsPage() {
                     <button onClick={createHabit}>+</button>
                 </MainHeader>
                 <MainContent>
-                    {newHabit}
+                    {!newHabit ? "" : <HabistForm setNewHabit={setNewHabit} config={config} setReloadPage={setReloadPage} reloadPage={reloadPage} />}
                     <ContainerHabit>
                         {habits.map((habit) => {
                             return (
                                 <HabitInfos key={habit.id}>
                                     <h5>{habit.name}</h5>
-                                    <img src={trash} alt="Ícone de deletar" />
+                                    <img onClick={() => deleteHabits(habit.id)} src={trash} alt="Ícone de deletar" />
                                     <DaysContainerCreated>
-                                        {idDays.map((d) => {
+                                        {idDays.map((d) => {const select = habit.days.includes(d.id)                       
                                             return (
-                                                <ButtonDays 
+                                                <ButtonDays selected={select}
                                                     key={d.id}>{d.name}
                                                 </ButtonDays>
                                             )
