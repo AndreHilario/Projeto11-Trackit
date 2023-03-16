@@ -1,33 +1,38 @@
 import styled from "styled-components";
 import { buildStyles, CircularProgressbar } from "react-circular-progressbar";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Menu() {
+
+    const navigate = useNavigate();
+
     return (
         <MenuContainer>
-            <p>Hábitos</p>
-        <span>
-            <CircularProgressbar
-                value={100}
-                text={`Hoje`}
-                background
-                backgroundPadding={6}
-                styles={buildStyles({
-                    backgroundColor: "#52B6FF",
-                    textColor: "#FFFFFF",
-                    pathColor: "#FFFFFF",
-                    textSize: 18,
-                    pathTransitionDuration: 0.5,
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center"
-                })} />
-            </span>
-            <p>Histórico</p>
+            <Link to={"/habitos"}>
+                <p>Hábitos</p>
+            </Link>
+            <ProgressContainer onClick={() => navigate("/hoje")}>
+                <CircularProgressbar
+                    value={100}
+                    text="Hoje"
+                    background
+                    backgroundPadding={6}
+                    styles={buildStyles({
+                        backgroundColor: "#52B6FF",
+                        textColor: "#FFFFFF",
+                        pathColor: "#FFFFFF",
+                        textSize: 18,
+                        trailColor: "transparent",
+                    })} />
+            </ProgressContainer>
+            <Link to={"/historico"}>
+                <p>Histórico</p>
+            </Link>
         </MenuContainer>
     )
 }
 
-const MenuContainer = styled.div`
+const MenuContainer = styled.footer`
     background-color: #FFFFFF;
     width: 100%;
     height: 75px;
@@ -36,22 +41,28 @@ const MenuContainer = styled.div`
     justify-content: space-between;
     margin: 0 auto;
     font-family: 'Lexend Deca', sans-serif;
-
     position: fixed;
     bottom: 0;
     p {
+        font-style: normal;
+        font-weight: 400;
         font-size: 18px;
+        line-height: 22px;
+        text-align: center;
         color: #52B6FF;
-        margin: 31px auto;
+        margin: 0 36px;
     }
-    span {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: #52b6ff;
-        width: 91px;
-        border-radius: 50%;
-        margin-bottom: 30px;
-  }
+    a {
+        text-decoration: none;
+    }
 `;
+
+const ProgressContainer = styled.span`
+    width: 91px; 
+    height: 91px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+
+`
 
