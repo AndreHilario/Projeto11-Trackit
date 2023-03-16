@@ -3,7 +3,7 @@ import { buildStyles, CircularProgressbar } from "react-circular-progressbar";
 import 'react-circular-progressbar/dist/styles.css';
 import { Link, useNavigate } from "react-router-dom";
 
-export default function Menu() {
+export default function Menu({percentage}) {
 
     const navigate = useNavigate();
 
@@ -14,7 +14,7 @@ export default function Menu() {
             </Link>
             <ProgressContainer data-test="today-link" onClick={() => navigate("/hoje")}>
                 <CircularProgressbar
-                    value={100}
+                    value={percentage}
                     text="Hoje"
                     background
                     backgroundPadding={6}

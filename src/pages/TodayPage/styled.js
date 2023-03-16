@@ -18,6 +18,7 @@ export const CheckCard = styled.div`
     border-radius: 5px;
     font-family: 'Lexend Deca', sans-serif;
     color: #666666;
+    position: relative;
     h5 {
         font-size: 20px;
         margin-top: 13px;
@@ -27,6 +28,23 @@ export const CheckCard = styled.div`
     p {
         font-size: 13px;
         margin-left: 15px;
+    }
+    img {
+        position: absolute;
+        top: 20px;
+        left: 19px;
+        z-index: 1;
+    }
+    span {
+        background-color: ${(props) => props.concluded ? "#8FC549": "#EBEBEB"};
+        width: 69px;
+        height: 69px;
+        border-radius: 5px;
+        border: ${(props) => !props.concluded && "1px solid #E7E7E7"};
+        position: relative;
+        position: absolute;
+        top: 13px;
+        right: 13px;
     }
 `
 

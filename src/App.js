@@ -5,9 +5,11 @@ import HabitsPage from "./pages/HabitsPage/HabitsPage";
 import TodayPage from "./pages/TodayPage/TodayPage";
 import HistoricPage from "./pages/HistoricPage/HistoricPage";
 import { AuthSupplier } from "./context/AuthSupplier";
+import { useState } from "react";
 
 
 export default function App() {
+
   return (
 
     <BrowserRouter>
