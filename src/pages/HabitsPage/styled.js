@@ -63,20 +63,23 @@ export const FormConatiner = styled.div`
     margin-top: 18px;
     margin-left: 19px;
 `
-export const DaysConatiner = styled.div`
+export const DaysContainer = styled.div`
     display: flex;
     gap: 10px;
     margin-left: 19px;
-    button {
-        width: 30px;
-        height: 30px;
-        font-family: 'Lexend Deca', sans-serif;
-        font-size: 20px;
-        background-color: #FFFFFF;
-        color: #DBDBDB;
-        border-radius: 5px;
-        border: 1px solid #D4D4D4;
-    }
+`
+
+export const ButtonDays = styled.button`
+        
+    width: 30px;
+    height: 30px;
+    font-family: 'Lexend Deca', sans-serif;
+    font-size: 20px;
+    background-color: ${(props) => !props.selected ? "#FFFFFF" : "#CFCFCF"};
+    color: ${(props) => !props.selected ? "#DBDBDB" : "#FFFFFF"};
+    border-radius: 5px;
+    border: 1px solid ${(props) => !props.selected ? "#D4D4D4" : "#CFCFCF"};
+    
 `
 
 export const ButtonsContainer = styled.div`

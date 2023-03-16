@@ -9,7 +9,7 @@ export default function HabitsPage() {
     const [newHabit, setNewHabit] = useState("");
 
     function createHabit() {
-        setNewHabit(<HabistForm />)
+        setNewHabit(<HabistForm setNewHabit={setNewHabit}/>)
     }
     
     return (

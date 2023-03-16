@@ -10,7 +10,7 @@ import { AuthContext } from "../../constants/AuthContext";
 export default function LoginForm() {
 
     const [form, setForm] = useState({ email: "", password: "" });
-    const [disabled, setDisabled] = useState(false);
+    const [disabled, setDisabled] = useState(true);
     const [token, setToken] = useState("");
 
     const { email, password } = form;

@@ -47,6 +47,6 @@ export const DotsLogin = styled.div`
     width: 51px;
     height: 13px;
     position: absolute;
-    left: 180px;
+    left: 165px;
     top: 370px;
 `;

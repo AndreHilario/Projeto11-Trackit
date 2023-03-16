@@ -2,7 +2,7 @@ import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
     input {
-            background: ${(props) => props.disabled ? "#D2D2D2" : "#FFFFFF"};
+            background-color: ${(props) => props.disabled ? "#F2F2F2" : "#FFFFFF"};
             border: 1px solid #D4D4D4;
             border-radius: 5px;
             height: 45px;
