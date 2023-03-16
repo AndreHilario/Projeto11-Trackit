@@ -70,8 +70,7 @@ export const DaysContainer = styled.div`
     margin-left: 19px;
 `
 
-export const ButtonDays = styled.button`
-        
+export const ButtonDays = styled.button`       
     width: 30px;
     height: 30px;
     font-family: 'Lexend Deca', sans-serif;

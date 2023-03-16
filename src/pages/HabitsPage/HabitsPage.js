@@ -54,9 +54,9 @@ export default function HabitsPage() {
                     <h2>Meus hábitos</h2>
                     <button data-test="habit-create-btn" onClick={createHabit}>+</button>
                 </MainHeader>
-                <MainContent>
+                <MainContent data-test="habit-container">
                     {!newHabit ? "" : <HabistForm setNewHabit={setNewHabit} config={config} setReloadPage={setReloadPage} reloadPage={reloadPage} />}
-                    <ContainerHabit data-test="habit-container">
+                    <ContainerHabit>
                         {habits.map((habit) => {
                             return (
                                 <HabitInfos key={habit.id}>

@@ -78,7 +78,7 @@ export default function HabistForm({ setNewHabit, config, setReloadPage, reloadP
             </DaysContainer>
             <ButtonsContainer disabled={disabled}>
                 <button data-test="habit-create-cancel-btn" onClick={cancelNewHabit}>Cancelar</button>
-                <button data-test="habit-save-cancel-btn" onClick={salveNewHabit}>{!disabled ? "Salvar" : <DotsLogin><ThreeDots color="#FFFFFF" /></DotsLogin>}</button>
+                <button data-test="habit-create-save-btn" onClick={salveNewHabit}>{!disabled ? "Salvar" : <DotsLogin><ThreeDots color="#FFFFFF" /></DotsLogin>}</button>
             </ButtonsContainer>
         </CreateHabitMenu>
     )
