@@ -39,6 +39,7 @@ export default function RegisterForm() {
     return (
         <FormRegisterContainer onSubmit={sendInfoProfile}>
             <input
+                data-test="email-input"
                 placeholder="email"
                 type="email"
                 name="email"
@@ -48,6 +49,7 @@ export default function RegisterForm() {
                 disabled={disabled}
             />
             <input
+                data-test="password-input"
                 placeholder="senha"
                 type="password"
                 name="password"
@@ -57,6 +59,7 @@ export default function RegisterForm() {
                 disabled={disabled}
             />
             <input
+                data-test="user-name-input"
                 placeholder="nome"
                 type="text"
                 name="name"
@@ -66,6 +69,7 @@ export default function RegisterForm() {
                 disabled={disabled}
             />
             <input
+                data-test="user-image-input"
                 placeholder="foto"
                 type="text"
                 name="image"
@@ -74,7 +78,7 @@ export default function RegisterForm() {
                 required
                 disabled={disabled}
             />
-            <ButtonRegister type="submit" disabled={disabled}>
+            <ButtonRegister data-test="signup-btn" type="submit" disabled={disabled}>
                 {!disabled ? "Cadastrar" : <Dots><ThreeDots color="#FFFFFF" /></Dots>}
             </ButtonRegister>
         </FormRegisterContainer>

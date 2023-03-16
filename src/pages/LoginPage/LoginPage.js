@@ -8,8 +8,8 @@ export default function LoginPage() {
         <LoginContainer>
             <img src={logo} alt="Logo do app" />
             <LoginForm />
-            <Link to={"/cadastro"}>
-                <RegisterLink>Não tem uma conta? Cadastre-se!</RegisterLink>
+            <Link to={"/cadastro"} data-test="signup-link">
+                <RegisterLink >Não tem uma conta? Cadastre-se!</RegisterLink>
             </Link>
 
         </LoginContainer>

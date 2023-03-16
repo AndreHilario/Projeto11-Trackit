@@ -6,7 +6,7 @@ export default function Header() {
     const { auth } = useAuthTo();
 
     return (
-        <HeaderContainer>
+        <HeaderContainer  data-test="header">
             <HeaderContent>
                 <p>Trackit</p>
                 <img src={auth.profileImage} alt="imagem de perfil" />

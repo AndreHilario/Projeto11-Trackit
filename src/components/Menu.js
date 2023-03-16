@@ -7,11 +7,11 @@ export default function Menu() {
     const navigate = useNavigate();
 
     return (
-        <MenuContainer>
-            <Link to={"/habitos"}>
+        <MenuContainer data-test="menu">
+            <Link data-test="habit-link" to={"/habitos"}>
                 <p>Hábitos</p>
             </Link>
-            <ProgressContainer onClick={() => navigate("/hoje")}>
+            <ProgressContainer data-test="today-link" onClick={() => navigate("/hoje")}>
                 <CircularProgressbar
                     value={100}
                     text="Hoje"
@@ -25,7 +25,7 @@ export default function Menu() {
                         trailColor: "transparent",
                     })} />
             </ProgressContainer>
-            <Link to={"/historico"}>
+            <Link data-test="history-link" to={"/historico"}>
                 <p>Histórico</p>
             </Link>
         </MenuContainer>

@@ -46,6 +46,7 @@ export default function LoginForm() {
 
         <FormLoginContainer onSubmit={sendLogin}>
             <input
+                data-test="email-input"
                 placeholder="email"
                 type="email"
                 name="email"
@@ -55,6 +56,7 @@ export default function LoginForm() {
                 disabled={disabled}
             />
             <input
+                data-test="password-input"
                 placeholder="senha"
                 type="password"
                 name="password"
@@ -64,7 +66,7 @@ export default function LoginForm() {
                 disabled={disabled}
             />
 
-            <ButtonLogin type="submit" disabled={disabled}>
+            <ButtonLogin data-test="login-btn" type="submit" disabled={disabled}>
                 {!disabled ? "Entrar" : <DotsLogin><ThreeDots color="#FFFFFF" /></DotsLogin>}
             </ButtonLogin>
 

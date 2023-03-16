@@ -9,7 +9,7 @@ export default function RegisterPage() {
         <RegisterContainer>
             <img src={logo} alt="Logo do app" />
             <RegisterForm />
-            <Link to={"/"}>
+            <Link to={"/"} data-test="login-link">
                 <LoginLink>Já tem uma conta? Faça login!</LoginLink>
             </Link>
         </RegisterContainer>
