@@ -78,7 +78,7 @@ export const ButtonDays = styled.button`
     background-color: ${(props) => !props.selected ? "#FFFFFF" : "#CFCFCF"};
     color: ${(props) => !props.selected ? "#DBDBDB" : "#FFFFFF"};
     border-radius: 5px;
-    border: ${(props) => !props.selected ? "1px solid #D4D4D4" : "1px solid #CFCFCF"};
+    border: ${(props) => !props.selected ? "1px solid #D5D5D5" : "1px solid #CFCFCF"};
     
 `
 
