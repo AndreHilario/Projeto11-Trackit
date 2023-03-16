@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { buildStyles, CircularProgressbar } from "react-circular-progressbar";
+import 'react-circular-progressbar/dist/styles.css';
 import { Link, useNavigate } from "react-router-dom";
 
 export default function Menu() {
@@ -61,8 +62,6 @@ const ProgressContainer = styled.span`
     width: 91px; 
     height: 91px;
     margin-bottom: 20px;
-    display: flex;
-    justify-content: center;
 
 `
 
