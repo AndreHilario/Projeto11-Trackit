@@ -36,7 +36,7 @@ export default function LoginForm() {
             })
             .catch((err) => {
                 setDisabled(false);
-                alert(err.reponse.data.message)
+                alert("Senha ou usuário inválidos")
             })
     }
 

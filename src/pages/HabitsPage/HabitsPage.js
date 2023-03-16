@@ -54,12 +54,12 @@ export default function HabitsPage() {
                     <h2>Meus hábitos</h2>
                     <button data-test="habit-create-btn" onClick={createHabit}>+</button>
                 </MainHeader>
-                <MainContent data-test="habit-container">
+                <MainContent>
                     {!newHabit ? "" : <HabistForm setNewHabit={setNewHabit} config={config} setReloadPage={setReloadPage} reloadPage={reloadPage} />}
                     <ContainerHabit>
                         {habits.map((habit) => {
                             return (
-                                <HabitInfos key={habit.id}>
+                                <HabitInfos data-test="habit-container" key={habit.id}>
                                     <h5 data-test="habit-name">{habit.name}</h5>
                                     <img data-test="habit-delete-btn" onClick={() => deleteHabits(habit.id)} src={trash} alt="Ícone de deletar" />
                                     <DaysContainerCreated>
