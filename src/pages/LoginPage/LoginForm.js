@@ -4,16 +4,15 @@ import { useNavigate } from "react-router-dom";
 import { URL_API } from "../../constants/urls";
 import { ButtonLogin, FormLoginContainer, DotsLogin } from "./styled";
 import { ThreeDots } from "react-loader-spinner";
-import { AuthContext } from "../../constants/AuthContext";
-
+import useAuthTo from "../../context/useAuthTo";
 
 export default function LoginForm() {
 
     const [form, setForm] = useState({ email: "", password: "" });
-    const [disabled, setDisabled] = useState(true);
-    const [token, setToken] = useState("");
+    const [disabled, setDisabled] = useState(false);
 
     const { email, password } = form;
+    const { setAuth } = useAuthTo();
 
     const navigate = useNavigate();
 
@@ -30,8 +29,9 @@ export default function LoginForm() {
             .post(`${URL_API}/auth/login`, form)
             .then((res) => {
                 setDisabled(false);
-                console.log(res.data.token)
-                setToken(res.data.token)
+                const getToken = res.data.token;
+                const profileImage = res.data.image;
+                setAuth({getToken, profileImage})
                 navigate("/hoje")
             })
             .catch((err) => {
@@ -43,32 +43,31 @@ export default function LoginForm() {
     console.log(form)
 
     return (
-        <AuthContext.Provider value={{ token, setToken }}>
-            <FormLoginContainer onSubmit={sendLogin}>
-                <input
-                    placeholder="email"
-                    type="email"
-                    name="email"
-                    value={email}
-                    onChange={handleLogin}
-                    required
-                    disabled={disabled}
-                />
-                <input
-                    placeholder="senha"
-                    type="password"
-                    name="password"
-                    value={password}
-                    onChange={handleLogin}
-                    required
-                    disabled={disabled}
-                />
 
-                <ButtonLogin type="submit" disabled={disabled}>
-                    {!disabled ? "Entrar" : <DotsLogin><ThreeDots color="#FFFFFF" /></DotsLogin>}
-                </ButtonLogin>
+        <FormLoginContainer onSubmit={sendLogin}>
+            <input
+                placeholder="email"
+                type="email"
+                name="email"
+                value={email}
+                onChange={handleLogin}
+                required
+                disabled={disabled}
+            />
+            <input
+                placeholder="senha"
+                type="password"
+                name="password"
+                value={password}
+                onChange={handleLogin}
+                required
+                disabled={disabled}
+            />
 
-            </FormLoginContainer>
-        </AuthContext.Provider>
+            <ButtonLogin type="submit" disabled={disabled}>
+                {!disabled ? "Entrar" : <DotsLogin><ThreeDots color="#FFFFFF" /></DotsLogin>}
+            </ButtonLogin>
+
+        </FormLoginContainer>
     )
 }

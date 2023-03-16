@@ -1,12 +1,15 @@
 import styled from "styled-components";
-import perfil from "../assets/Rectangle 14.png";
+import useAuthTo from "../context/useAuthTo";
 
 export default function Header() {
+
+    const { auth } = useAuthTo();
+
     return (
         <HeaderContainer>
             <HeaderContent>
                 <p>Trackit</p>
-                <img src={perfil} alt="imagem de perfil" />
+                <img src={auth.profileImage} alt="imagem de perfil" />
             </HeaderContent>
         </HeaderContainer>
     )

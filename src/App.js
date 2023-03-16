@@ -9,8 +9,9 @@ import { AuthSupplier } from "./context/AuthSupplier";
 
 export default function App() {
   return (
-    <AuthSupplier>
-      <BrowserRouter>
+
+    <BrowserRouter>
+      <AuthSupplier>
         <Routes>
           <Route path="/" element={<LoginPage />}></Route>
           <Route path="/cadastro" element={<RegisterPage />}></Route>
@@ -18,8 +19,9 @@ export default function App() {
           <Route path="/hoje" element={<TodayPage />}></Route>
           <Route path="/historico" element={<HistoricPage />}></Route>
         </Routes>
-      </BrowserRouter>
-    </AuthSupplier>
+      </AuthSupplier>
+    </BrowserRouter>
+
   );
 }
 
