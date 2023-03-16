@@ -34,7 +34,7 @@ export default function HabitsPage() {
 
     function deleteHabits(id) {
         let mensagem = "Você realmente gostaria de apagar o hábito?"
-        if(window.confirm(mensagem)){
+        if (window.confirm(mensagem)) {
             axios
                 .delete(`${URL_API}/habits/${id}`, config)
                 .then(() => {
@@ -52,21 +52,25 @@ export default function HabitsPage() {
             <Main>
                 <MainHeader>
                     <h2>Meus hábitos</h2>
-                    <button onClick={createHabit}>+</button>
+                    <button data-test="habit-create-btn" onClick={createHabit}>+</button>
                 </MainHeader>
                 <MainContent>
                     {!newHabit ? "" : <HabistForm setNewHabit={setNewHabit} config={config} setReloadPage={setReloadPage} reloadPage={reloadPage} />}
-                    <ContainerHabit>
+                    <ContainerHabit data-test="habit-container">
                         {habits.map((habit) => {
                             return (
                                 <HabitInfos key={habit.id}>
-                                    <h5>{habit.name}</h5>
-                                    <img onClick={() => deleteHabits(habit.id)} src={trash} alt="Ícone de deletar" />
+                                    <h5 data-test="habit-name">{habit.name}</h5>
+                                    <img data-test="habit-delete-btn" onClick={() => deleteHabits(habit.id)} src={trash} alt="Ícone de deletar" />
                                     <DaysContainerCreated>
-                                        {idDays.map((d) => {const select = habit.days.includes(d.id)                       
+                                        {idDays.map((d) => {
+                                            const select = habit.days.includes(d.id)
                                             return (
-                                                <ButtonDays selected={select}
-                                                    key={d.id}>{d.name}
+                                                <ButtonDays
+                                                    data-test="habit-day"
+                                                    selected={select}
+                                                    key={d.id}>
+                                                    {d.name}
                                                 </ButtonDays>
                                             )
                                         })}

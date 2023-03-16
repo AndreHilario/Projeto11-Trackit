@@ -51,9 +51,10 @@ export default function HabistForm({ setNewHabit, config, setReloadPage, reloadP
     }
 
     return (
-        <CreateHabitMenu>
+        <CreateHabitMenu data-test="habit-create-container">
             <FormConatiner>
                 <input
+                    data-test="habit-name-input"
                     placeholder="nome do hábito"
                     value={habitName}
                     onChange={(e) => setHabitName(e.target.value)}
@@ -64,15 +65,20 @@ export default function HabistForm({ setNewHabit, config, setReloadPage, reloadP
                 {idDays.map((day) => {
                     const select = selectedDay.includes(day.id)
                     return (
-                        <ButtonDays disabled={disabled} selected={select}
-                            key={day.id} onClick={() => choseDay(day.id)}>{day.name}
+                        <ButtonDays
+                            data-test="habit-day"
+                            disabled={disabled}
+                            selected={select}
+                            key={day.id}
+                            onClick={() => choseDay(day.id)}>
+                            {day.name}
                         </ButtonDays>
                     )
                 })}
             </DaysContainer>
             <ButtonsContainer disabled={disabled}>
-                <button onClick={cancelNewHabit}>Cancelar</button>
-                <button onClick={salveNewHabit}>{!disabled ? "Salvar" : <DotsLogin><ThreeDots color="#FFFFFF" /></DotsLogin>}</button>
+                <button data-test="habit-create-cancel-btn" onClick={cancelNewHabit}>Cancelar</button>
+                <button data-test="habit-save-cancel-btn" onClick={salveNewHabit}>{!disabled ? "Salvar" : <DotsLogin><ThreeDots color="#FFFFFF" /></DotsLogin>}</button>
             </ButtonsContainer>
         </CreateHabitMenu>
     )
