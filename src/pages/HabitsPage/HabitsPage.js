@@ -44,7 +44,6 @@ export default function HabitsPage() {
                 .catch((err) => console.log(err.response.message))
         }
     }
-
     return (
 
         <HabitsContainer>
