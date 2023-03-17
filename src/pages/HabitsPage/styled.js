@@ -75,10 +75,10 @@ export const ButtonDays = styled.button`
     height: 30px;
     font-family: 'Lexend Deca', sans-serif;
     font-size: 20px;
-    background-color: ${(props) => !props.selected ? "#FFFFFF" : "#CFCFCF"};
-    color: ${(props) => !props.selected ? "#DBDBDB" : "#FFFFFF"};
+    background-color: ${(props) => !props.selected ? "rgba(255, 255, 255, 1)": "rgba(207, 207, 207, 1)"};
+    color: ${(props) => !props.selected ? "rgba(219, 219, 219, 1)" : "rgba(255, 255, 255, 1)"};
     border-radius: 5px;
-    border: ${(props) => !props.selected ? "1px solid #D5D5D5" : "1px solid #CFCFCF"};
+    border: ${(props) => !props.selected ? "1px solid rgba(212, 212, 212, 1)" : "1px solid rgba(207, 207, 207, 1)"};
     
 `
 

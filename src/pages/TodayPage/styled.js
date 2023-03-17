@@ -64,7 +64,7 @@ export const MainHeaderToday = styled.div`
         font-family: 'Lexend Deca', sans-serif;
         font-size: 18px;
         font-weight: 400;
-        color: ${(props) => props.percentage && COLORS[props.percentage]};
+        color: ${(props) => props.percentage ? "rgba(143, 197, 73, 1)" : "rgba(186, 186, 186, 1)"};
         margin-top: 7px;
     }
 `

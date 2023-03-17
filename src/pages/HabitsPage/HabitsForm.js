@@ -63,7 +63,7 @@ export default function HabistForm({ setNewHabit, config, setReloadPage, reloadP
             </FormConatiner>
             <DaysContainer>
                 {idDays.map((day) => {
-                    const select = selectedDay.includes(day.id)
+                    const select = selectedDay.includes(day.id) ? 1 : 0
                     return (
                         <ButtonDays
                             data-test="habit-day"
