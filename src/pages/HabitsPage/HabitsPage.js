@@ -9,7 +9,7 @@ import axios from "axios";
 import trash from "../../assets/Delete.png"
 import { idDays } from "../../constants/days";
 
-export default function HabitsPage() {
+export default function HabitsPage({ percentage }) {
 
     const [newHabit, setNewHabit] = useState(false);
     const [habits, setHabits] = useState([]);
@@ -83,7 +83,7 @@ export default function HabitsPage() {
                 </MainContent>
 
             </Main>
-            <Menu />
+            <Menu percentage={percentage}/>
         </HabitsContainer>
     )
 }

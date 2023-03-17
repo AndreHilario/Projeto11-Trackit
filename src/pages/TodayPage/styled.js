@@ -37,8 +37,8 @@ export const CheckCard = styled.div`
         left: 19px;
         z-index: 1;
     }
-    span {
-        background-color: ${(props) => props.concluded ? "#8FC549": "#EBEBEB"};
+    div {
+        background-color: ${(props) => props.concluded ? "#8FC549" : "#EBEBEB"};
         width: 69px;
         height: 69px;
         border-radius: 5px;
@@ -67,4 +67,12 @@ export const MainHeaderToday = styled.div`
         color: ${(props) => props.percentage ? "rgba(143, 197, 73, 1)" : "rgba(186, 186, 186, 1)"};
         margin-top: 7px;
     }
+`
+
+export const Sequence = styled.span`
+    color: ${(props) => props.concluded ? "#8FC549" : "#666666"};
+`
+
+export const Record = styled.span`
+    color: ${(props) => props.record ? "#8FC549" : "#666666"};
 `

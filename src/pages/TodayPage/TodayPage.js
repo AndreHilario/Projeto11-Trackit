@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Header from "../../components/Header";
 import Menu from "../../components/Menu";
-import { CheckCard, TodayContainer, TodayContent, MainHeaderToday } from "./styled";
+import { CheckCard, TodayContainer, TodayContent, MainHeaderToday, Sequence, Record } from "./styled";
 import axios from "axios";
 import { URL_API } from "../../constants/urls";
 import useAuthTo from "../../context/useAuthTo";
@@ -9,19 +9,29 @@ import check from "../../assets/Check.png";
 import dayjs from "dayjs";
 import "dayjs/locale/pt-br";
 
-export default function TodayPage() {
+export default function TodayPage({ percentage, setPercentage }) {
 
     const [habitsToday, setHabitsToday] = useState([]);
-    const [percentage, setPercentage] = useState(0);
     const { auth } = useAuthTo();
 
     const today = dayjs().locale("pt-br").format("dddd, DD/MM");
     const showToday = today.charAt(0).toUpperCase() + today.slice(1);
-    let repetitions = 0;
 
     const config = {
         headers: { Authorization: `Bearer ${auth.getToken}` }
     }
+
+    useEffect(() => {
+        let total = 0;
+        let doneTrue = 0;
+
+        habitsToday.forEach((check) => {
+            total++
+            { check.done && doneTrue++ }
+        })
+        const percentageUpdated = doneTrue / total * 100;
+        setPercentage(percentageUpdated)
+    }, [habitsToday])
 
     useEffect(() => {
 
@@ -29,14 +39,6 @@ export default function TodayPage() {
             .get(`${URL_API}/habits/today`, config)
             .then((res) => {
                 setHabitsToday(res.data)
-                res.data.forEach((value) => {
-                    if (value.done === true) {
-                        repetitions++;
-                    } else {
-                        setPercentage(0)
-                    }
-                });
-                setPercentage((repetitions / res.data.length) * 100)
             })
             .catch((err) => alert(err.response.message))
     }, [])
@@ -57,7 +59,6 @@ export default function TodayPage() {
                 .post(`${URL_API}/habits/${id}/check`, {}, config)
                 .then(() => {
                     setHabitsToday(newHabitsToday)
-                    setPercentage((repetitions + 1) / newHabitsToday.length * 100);
                 })
                 .catch((err) => alert(err.response.message))
         }
@@ -66,7 +67,6 @@ export default function TodayPage() {
                 .post(`${URL_API}/habits/${id}/uncheck`, {}, config)
                 .then(() => {
                     setHabitsToday(newHabitsToday)
-                    setPercentage((repetitions) / newHabitsToday.length * 100);
                 })
                 .catch((err) => alert(err.response.message))
         }
@@ -85,11 +85,11 @@ export default function TodayPage() {
                     return (
                         <CheckCard data-test="today-habit-container" key={h.id} concluded={h.done}>
                             <h5 data-test="today-habit-name">{h.name}</h5>
-                            <p data-test="today-habit-sequence">Sequência atual: {h.currentSequence}</p>
-                            <p data-test="today-habit-record">Seu recorde: {h.highestSequence}</p>
-                            <span data-test="today-habit-check-btn" onClick={() => checkHabit(h.done, h.id)}>
+                            <p data-test="today-habit-sequence">Sequência atual: <Sequence concluded={h.done}>{h.currentSequence} dias</Sequence></p>
+                            <p data-test="today-habit-record">Seu recorde: <Record record={h.currentSequence === h.highestSequence && h.done}>{h.highestSequence} dias</Record></p>
+                            <div data-test="today-habit-check-btn" onClick={() => checkHabit(h.done, h.id)}>
                                 <img src={check} />
-                            </span>
+                            </div>
                         </CheckCard>
                     )
                 })}
