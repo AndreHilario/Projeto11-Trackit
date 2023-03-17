@@ -3,12 +3,12 @@ import styled from "styled-components";
 export const HistoricContainer = styled.div`
     background-color: #E5E5E5;
     height: 1000px;
+    padding-top: 98px;
 `
 
 export const HistoricContent = styled.div`
     display: flex;
-    flex-direction: column; 
-    margin-top: 91px;
+    flex-direction: column;
     h2 {
         font-family: 'Lexend Deca', sans-serif;
         color: #126BA5;

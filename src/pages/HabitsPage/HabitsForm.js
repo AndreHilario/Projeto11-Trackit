@@ -1,17 +1,16 @@
 import { CreateHabitMenu, DaysContainer, FormConatiner, ButtonDays, ButtonsContainer, DotsLogin } from "./styled";
 import { idDays } from "../../constants/days";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import { URL_API } from "../../constants/urls";
 import { ThreeDots } from "react-loader-spinner";
 
 export default function HabistForm({ setNewHabit, config, setReloadPage, reloadPage }) {
 
+    const [initialState, setInitialState] = useState({});
     const [habitName, setHabitName] = useState("");
     const [selectedDay, setSelectedDay] = useState([]);
     const [disabled, setDisabled] = useState(false);
-
-    console.log(habitName)
 
     function choseDay(id) {
         if (selectedDay.includes(id)) {
@@ -19,10 +18,13 @@ export default function HabistForm({ setNewHabit, config, setReloadPage, reloadP
         } else {
             setSelectedDay([...selectedDay, id]);
         }
+        setInitialState({ habitName, selectedDay });
     }
 
     function cancelNewHabit() {
-        setNewHabit(false)
+        setHabitName(initialState.habitName || "");
+        setSelectedDay(initialState.selectedDay || []);
+        setNewHabit(false);
     }
 
     function salveNewHabit() {
@@ -33,6 +35,7 @@ export default function HabistForm({ setNewHabit, config, setReloadPage, reloadP
         }
 
         setDisabled(true);
+        setInitialState({});
 
         axios
             .post(`${URL_API}/habits`, body, config)
@@ -57,20 +60,25 @@ export default function HabistForm({ setNewHabit, config, setReloadPage, reloadP
                     data-test="habit-name-input"
                     placeholder="nome do hábito"
                     value={habitName}
-                    onChange={(e) => setHabitName(e.target.value)}
+                    onChange={(e) => {
+                        setHabitName(e.target.value)
+                        setInitialState({...initialState, habitName: e.target.value})
+                    }}
                     disabled={disabled}
                 />
             </FormConatiner>
             <DaysContainer>
                 {idDays.map((day) => {
-                    const select = selectedDay.includes(day.id) ? 1 : 0
+                    const select = selectedDay.includes(day.id)
                     return (
                         <ButtonDays
                             data-test="habit-day"
                             disabled={disabled}
                             selected={select}
                             key={day.id}
-                            onClick={() => choseDay(day.id)}>
+                            onClick={() => {
+                                choseDay(day.id)
+                            }}>
                             {day.name}
                         </ButtonDays>
                     )

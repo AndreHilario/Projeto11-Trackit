@@ -44,6 +44,7 @@ const MenuContainer = styled.footer`
     font-family: 'Lexend Deca', sans-serif;
     position: fixed;
     bottom: 0;
+    z-index: 1;
     p {
         font-style: normal;
         font-weight: 400;

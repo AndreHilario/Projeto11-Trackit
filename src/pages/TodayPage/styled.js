@@ -3,7 +3,8 @@ import { COLORS } from "../../constants/colors";
 
 export const TodayContainer = styled.div`
     background-color: #E5E5E5;
-    height: 1000px;
+    min-height: 2000px;
+    padding-top: 98px;
 `;
 
 export const TodayContent = styled.main`
@@ -53,7 +54,6 @@ export const CheckCard = styled.div`
 export const MainHeaderToday = styled.div`
     display: flex;
     flex-direction: column;
-    margin-top: 91px;
     margin-bottom: 28px;
     h2 {
         font-family: 'Lexend Deca', sans-serif;

@@ -2,8 +2,8 @@ import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
     input {
-            background-color: ${(props) => props.disabled ? "#F2F2F2" : "#FFFFFF"};
-            border: 1px solid #D4D4D4;
+            background-color: "#FFFFFF";
+            border: 1px solid #D5D5D5;
             border-radius: 5px;
             height: 45px;
             width: 283px;
@@ -18,6 +18,10 @@ const GlobalStyle = createGlobalStyle`
             &::placeholder{
 		        color: #DBDBDB;
 	        }
+            :focus {
+                background: #F0FFFF;
+                outline: solid 1.5px #52B6FF;
+            } 
     }
 `;
 export default GlobalStyle;

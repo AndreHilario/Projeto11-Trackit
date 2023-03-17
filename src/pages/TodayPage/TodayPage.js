@@ -43,6 +43,20 @@ export default function TodayPage() {
             .catch((err) => alert(err.response.message))
     }, [])
 
+    if (habitsToday.length === 0) {
+        return (
+            <TodayContainer>
+                <Header />
+                <TodayContent>
+                    <MainHeaderToday>
+                        <h2 data-test="today">{showToday}</h2>
+                        <p data-test="today-counter">Nenhum hábito concluído ainda</p>
+                    </MainHeaderToday>
+                </TodayContent>
+                <Menu percentage={percentage} />
+            </TodayContainer>
+        )
+    }
     function checkHabit(check, id) {
 
         const newHabitsToday = habitsToday.map((habit) => {
@@ -60,7 +74,7 @@ export default function TodayPage() {
                 .then(() => {
                     setHabitsToday(newHabitsToday)
                 })
-                .catch((err) => alert(err.response.message))
+                .catch(() => alert("Algo deu errado ao clicar"))
         }
         if (check === true) {
             axios
@@ -68,7 +82,7 @@ export default function TodayPage() {
                 .then(() => {
                     setHabitsToday(newHabitsToday)
                 })
-                .catch((err) => alert(err.response.message))
+                .catch(() => alert("Algo deu errado ao clicar"))
         }
 
     }
@@ -78,7 +92,11 @@ export default function TodayPage() {
             <TodayContent>
                 <MainHeaderToday percentage={percentage !== 0 ? 1 : 0}>
                     <h2 data-test="today">{showToday}</h2>
-                    <p data-test="today-counter">{percentage !== 0 ? `${percentage.toFixed(0)}% dos hábitos concluídos` : "Nenhum hábito concluído ainda"}</p>
+                    <p data-test="today-counter">
+                        {percentage !== 0
+                            ? `${percentage.toFixed(0)}% dos hábitos concluídos`
+                            : habitsToday.length === 0 || percentage === 0 && "Nenhum hábito concluído ainda"}
+                    </p>
                 </MainHeaderToday>
                 {habitsToday.map((h) => {
                     console.log(h)

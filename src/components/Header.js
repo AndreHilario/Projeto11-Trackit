@@ -27,7 +27,7 @@ const HeaderContainer = styled.header`
     position: fixed;
     top: 0;
 
-    z-index: 1;
+    z-index: 2;
 `;
 
 export const HeaderContent = styled.div`

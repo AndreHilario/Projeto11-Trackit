@@ -2,7 +2,8 @@ import styled from "styled-components";
 
 export const HabitsContainer = styled.div`
     background-color: #E5E5E5;
-    height: 1000px;
+    min-height: 2000px;
+    padding-top: 98px;
 `;
 
 export const Main = styled.main`
@@ -15,7 +16,6 @@ export const MainHeader = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 91px;
     h2 {
         font-family: 'Lexend Deca', sans-serif;
         color: #126BA5;
