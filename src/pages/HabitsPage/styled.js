@@ -60,7 +60,7 @@ export const CreateHabitMenu = styled.div`
     flex-direction: column;
     position: relative;
 `
-export const FormConatiner = styled.div`
+export const FormContainer = styled.div`
     margin-top: 18px;
     margin-left: 19px;
 `

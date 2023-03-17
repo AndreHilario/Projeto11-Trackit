@@ -1,6 +1,6 @@
-import { CreateHabitMenu, DaysContainer, FormConatiner, ButtonDays, ButtonsContainer, DotsLogin } from "./styled";
+import { CreateHabitMenu, DaysContainer, FormContainer, ButtonDays, ButtonsContainer, DotsLogin } from "./styled";
 import { idDays } from "../../constants/days";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import axios from "axios";
 import { URL_API } from "../../constants/urls";
 import { ThreeDots } from "react-loader-spinner";
@@ -55,7 +55,7 @@ export default function HabistForm({ setNewHabit, config, setReloadPage, reloadP
 
     return (
         <CreateHabitMenu data-test="habit-create-container">
-            <FormConatiner>
+            <FormContainer>
                 <input
                     data-test="habit-name-input"
                     placeholder="nome do hábito"
@@ -66,7 +66,7 @@ export default function HabistForm({ setNewHabit, config, setReloadPage, reloadP
                     }}
                     disabled={disabled}
                 />
-            </FormConatiner>
+            </FormContainer>
             <DaysContainer>
                 {idDays.map((day) => {
                     const select = selectedDay.includes(day.id)
