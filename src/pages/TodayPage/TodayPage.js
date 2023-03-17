@@ -9,10 +9,10 @@ import check from "../../assets/Check.png";
 import dayjs from "dayjs";
 import "dayjs/locale/pt-br";
 
-export default function TodayPage({ percentage, setPercentage }) {
+export default function TodayPage() {
 
     const [habitsToday, setHabitsToday] = useState([]);
-    const { auth } = useAuthTo();
+    const { auth, percentage, setPercentage } = useAuthTo();
 
     const today = dayjs().locale("pt-br").format("dddd, DD/MM");
     const showToday = today.charAt(0).toUpperCase() + today.slice(1);

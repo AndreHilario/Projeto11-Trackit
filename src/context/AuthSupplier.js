@@ -5,9 +5,10 @@ const AuthContext = createContext({})
 
 export function AuthSupplier ({ children }) {
     const [auth, setAuth] = useState({})
+    const [percentage, setPercentage] = useState(100);
 
     return (
-        <AuthContext.Provider value={{ auth, setAuth }}>
+        <AuthContext.Provider value={{ auth, setAuth, percentage, setPercentage }}>
             {children}
         </AuthContext.Provider>
     )

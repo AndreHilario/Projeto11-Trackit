@@ -9,13 +9,13 @@ import axios from "axios";
 import trash from "../../assets/Delete.png"
 import { idDays } from "../../constants/days";
 
-export default function HabitsPage({ percentage }) {
+export default function HabitsPage() {
 
     const [newHabit, setNewHabit] = useState(false);
     const [habits, setHabits] = useState([]);
     const [reloadPage, setReloadPage] = useState(0);
 
-    const { auth } = useAuthTo();
+    const { auth, percentage } = useAuthTo();
 
     const config = {
         headers: { Authorization: `Bearer ${auth.getToken}` }
