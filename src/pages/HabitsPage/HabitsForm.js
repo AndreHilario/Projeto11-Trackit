@@ -6,10 +6,10 @@ import { URL_API } from "../../constants/urls";
 import { ThreeDots } from "react-loader-spinner";
 import GlobalStyle from "../../style/GlobalStyle";
 
-export default function HabistForm({ setNewHabit, config, setReloadPage, reloadPage }) {
+export default function HabistForm(props) {
 
-    const [habitName, setHabitName] = useState("");
-    const [selectedDay, setSelectedDay] = useState([]);
+    const { setNewHabit, config, setReloadPage, reloadPage, habitName, setHabitName, selectedDay, setSelectedDay } = props;
+
     const [disabled, setDisabled] = useState(false);
 
     function choseDay(id) {

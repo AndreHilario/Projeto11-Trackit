@@ -14,6 +14,8 @@ export default function HabitsPage() {
     const [newHabit, setNewHabit] = useState(false);
     const [habits, setHabits] = useState([]);
     const [reloadPage, setReloadPage] = useState(0);
+    const [selectedDay, setSelectedDay] = useState([]);
+    const [habitName, setHabitName] = useState("");
 
     const { auth, percentage } = useAuthTo();
 
@@ -59,6 +61,10 @@ export default function HabitsPage() {
                         config={config}
                         setReloadPage={setReloadPage}
                         reloadPage={reloadPage}
+                        habitName={habitName}
+                        setHabitName={setHabitName}
+                        selectedDay={selectedDay}
+                        setSelectedDay={setSelectedDay}
                     />}
                     <ContainerHabit>
                         {habits.map((habit) => {
