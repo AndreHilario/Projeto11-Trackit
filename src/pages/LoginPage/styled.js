@@ -25,7 +25,6 @@ export const ButtonLogin = styled.button`
     background-color: #52B6FF;
     border: 1px solid #52B6FF;
     border-radius: 5px;
-    font-family: 'Lexend Deca', sans-serif;
     font-size: 20px;
     color: #FFFFFF;
     text-align: center;
@@ -36,7 +35,6 @@ export const ButtonLogin = styled.button`
 export const RegisterLink = styled.div`
     height: 17px;
     margin-top: 25px;
-    font-family: 'Lexend Deca', sans-serif;
     font-size: 14px;
     color: #52B6FF;
     text-decoration: underline #52B6FF;

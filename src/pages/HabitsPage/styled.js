@@ -20,14 +20,18 @@ export const MainHeader = styled.div`
     button {
         width: 40px;
         height: 35px;
+        padding-bottom: 5px;
         border: 1px solid #52B6FF;
         background-color: #52B6FF;
         border-radius: 5px;
         margin-right: 18px;
-        font-weight: bold;
-        text-align: center;
         font-size: 27px;
+        font-weight: 400;
+        line-height: 34px;
         color: #FFFFFF;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }   
 `;
 export const MainContent = styled.div`
@@ -37,7 +41,6 @@ export const MainContent = styled.div`
     margin-top: 20px;
     p {
         color: #666666;
-        font-family: 'Lexend Deca', sans-serif;
         font-size: 18px;
         line-height: 23px;
         margin-top: 29px;
@@ -68,7 +71,6 @@ export const DaysContainer = styled.div`
 export const ButtonDays = styled.button`       
     width: 30px;
     height: 30px;
-    font-family: 'Lexend Deca', sans-serif;
     font-size: 20px;
     background-color: ${(props) => !props.selected ? "#FFFFFF": "#CFCFCF"};
     color: ${(props) => !props.selected ? "#DBDBDB" : "#FFFFFF"};
@@ -93,7 +95,6 @@ export const ButtonsContainer = styled.div`
         height: 20px;
         background-color: #FFFFFF;
         color: #52B6FF;
-        font-family: 'Lexend Deca', sans-serif;
         font-size: 16px;
         border: 1px solid #FFFFFF;
         opacity: ${(props) => props.disabled ? 0.7 : 1};
@@ -104,7 +105,6 @@ export const ButtonsContainer = styled.div`
         height: 35px;
         background-color: #52B6FF;
         color: #FFFFFF;
-        font-family: 'Lexend Deca', sans-serif;
         font-size: 16px;
         border: 1px solid #52B6FF;
         border-radius: 5px;
@@ -121,7 +121,6 @@ export const ContainerHabit = styled.div`
 `
 
 export const HabitInfos = styled.div`
-    font-family: 'Lexend Deca', sans-serif;
     color: #666666;
     position: relative;
     width: 340px;

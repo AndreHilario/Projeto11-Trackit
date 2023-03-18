@@ -1,6 +1,9 @@
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
+    body {
+        font-family: 'Lexend Deca', sans-serif;
+    }
     input {
             background-color: ${(props) => props.disabled ? "#F2F2F2" : "#FFFFFF"};
             border: 1px solid #D5D5D5;
@@ -27,6 +30,9 @@ const GlobalStyle = createGlobalStyle`
         font-family: 'Lexend Deca', sans-serif;
         color: #126BA5;
         font-size: 26px;
+    }
+    button {
+        font-family: 'Lexend Deca', sans-serif;
     }
 `;
 export default GlobalStyle;

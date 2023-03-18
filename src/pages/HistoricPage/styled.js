@@ -12,7 +12,6 @@ export const HistoricContent = styled.div`
     margin-left: 17px;
     p {
         color: #666666;
-        font-family: 'Lexend Deca', sans-serif;
         font-size: 18px;
         line-height: 23px;
         margin-top: 17px;

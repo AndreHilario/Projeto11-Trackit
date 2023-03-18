@@ -41,7 +41,6 @@ const MenuContainer = styled.footer`
     align-items: center;
     justify-content: space-between;
     margin: 0 auto;
-    font-family: 'Lexend Deca', sans-serif;
     position: fixed;
     bottom: 0;
     z-index: 1;

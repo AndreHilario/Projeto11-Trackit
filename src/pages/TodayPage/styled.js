@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { COLORS } from "../../constants/colors";
 
 export const TodayContainer = styled.div`
     background-color: #E5E5E5;
@@ -18,7 +17,6 @@ export const CheckCard = styled.div`
     width: 340px;
     height: 94px;
     border-radius: 5px;
-    font-family: 'Lexend Deca', sans-serif;
     color: #666666;
     margin-bottom: 10px;
     position: relative;
@@ -56,7 +54,6 @@ export const MainHeaderToday = styled.div`
     flex-direction: column;
     margin-bottom: 28px;
     p {
-        font-family: 'Lexend Deca', sans-serif;
         font-size: 18px;
         font-weight: 400;
         color: ${(props) => props.percentage ? "#8FC549" : "#BABABA"};
