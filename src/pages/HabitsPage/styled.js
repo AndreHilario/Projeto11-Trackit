@@ -16,12 +16,7 @@ export const MainHeader = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    h2 {
-        font-family: 'Lexend Deca', sans-serif;
-        color: #126BA5;
-        font-size: 26px;
-        margin-left: 17px;
-    }
+    margin-left: 17px;
     button {
         width: 40px;
         height: 35px;

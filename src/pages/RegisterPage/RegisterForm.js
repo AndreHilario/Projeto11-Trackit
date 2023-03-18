@@ -4,6 +4,7 @@ import axios from "axios";
 import { URL_API } from "../../constants/urls";
 import { useNavigate } from "react-router-dom";
 import { ThreeDots } from "react-loader-spinner";
+import GlobalStyle from "../../style/GlobalStyle";
 
 export default function RegisterForm() {
 
@@ -81,6 +82,7 @@ export default function RegisterForm() {
             <ButtonRegister data-test="signup-btn" type="submit" disabled={disabled}>
                 {!disabled ? "Cadastrar" : <Dots><ThreeDots color="#FFFFFF" /></Dots>}
             </ButtonRegister>
+            <GlobalStyle disabled={disabled} />
         </FormRegisterContainer>
     )
 }

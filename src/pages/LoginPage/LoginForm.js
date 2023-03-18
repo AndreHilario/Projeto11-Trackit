@@ -5,6 +5,7 @@ import { URL_API } from "../../constants/urls";
 import { ButtonLogin, FormLoginContainer, DotsLogin } from "./styled";
 import { ThreeDots } from "react-loader-spinner";
 import useAuthTo from "../../context/useAuthTo";
+import GlobalStyle from "../../style/GlobalStyle";
 
 export default function LoginForm() {
 
@@ -43,7 +44,6 @@ export default function LoginForm() {
     console.log(form)
 
     return (
-
         <FormLoginContainer onSubmit={sendLogin}>
             <input
                 data-test="email-input"
@@ -69,7 +69,7 @@ export default function LoginForm() {
             <ButtonLogin data-test="login-btn" type="submit" disabled={disabled}>
                 {!disabled ? "Entrar" : <DotsLogin><ThreeDots color="#FFFFFF" /></DotsLogin>}
             </ButtonLogin>
-
+            <GlobalStyle disabled={disabled}/>
         </FormLoginContainer>
     )
 }

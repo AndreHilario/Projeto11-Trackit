@@ -55,11 +55,6 @@ export const MainHeaderToday = styled.div`
     display: flex;
     flex-direction: column;
     margin-bottom: 28px;
-    h2 {
-        font-family: 'Lexend Deca', sans-serif;
-        color: #126BA5;
-        font-size: 26px;
-    }
     p {
         font-family: 'Lexend Deca', sans-serif;
         font-size: 18px;

@@ -4,6 +4,7 @@ import { useState } from "react";
 import axios from "axios";
 import { URL_API } from "../../constants/urls";
 import { ThreeDots } from "react-loader-spinner";
+import GlobalStyle from "../../style/GlobalStyle";
 
 export default function HabistForm({ setNewHabit, config, setReloadPage, reloadPage }) {
 
@@ -62,7 +63,7 @@ export default function HabistForm({ setNewHabit, config, setReloadPage, reloadP
                     value={habitName}
                     onChange={(e) => {
                         setHabitName(e.target.value)
-                        setInitialState({...initialState, habitName: e.target.value})
+                        setInitialState({ ...initialState, habitName: e.target.value })
                     }}
                     disabled={disabled}
                 />
@@ -88,6 +89,7 @@ export default function HabistForm({ setNewHabit, config, setReloadPage, reloadP
                 <button data-test="habit-create-cancel-btn" onClick={cancelNewHabit}>Cancelar</button>
                 <button data-test="habit-create-save-btn" onClick={salveNewHabit}>{!disabled ? "Salvar" : <DotsLogin><ThreeDots color="#FFFFFF" /></DotsLogin>}</button>
             </ButtonsContainer>
+            <GlobalStyle disabled={disabled} />
         </CreateHabitMenu>
     )
 }

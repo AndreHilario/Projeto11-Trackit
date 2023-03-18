@@ -2,7 +2,7 @@ import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
     input {
-            background-color: "#FFFFFF";
+            background-color: ${(props) => props.disabled ? "#F2F2F2" : "#FFFFFF"};
             border: 1px solid #D5D5D5;
             border-radius: 5px;
             height: 45px;
@@ -22,6 +22,11 @@ const GlobalStyle = createGlobalStyle`
                 background: #F0FFFF;
                 outline: solid 1.5px #52B6FF;
             } 
+    }
+    h2 {
+        font-family: 'Lexend Deca', sans-serif;
+        color: #126BA5;
+        font-size: 26px;
     }
 `;
 export default GlobalStyle;
