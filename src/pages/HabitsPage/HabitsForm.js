@@ -8,10 +8,12 @@ import GlobalStyle from "../../style/GlobalStyle";
 
 export default function HabistForm({ setNewHabit, config, setReloadPage, reloadPage }) {
 
-    const [initialState, setInitialState] = useState({});
     const [habitName, setHabitName] = useState("");
     const [selectedDay, setSelectedDay] = useState([]);
     const [disabled, setDisabled] = useState(false);
+
+    console.log(habitName)
+    console.log(selectedDay)
 
     function choseDay(id) {
         if (selectedDay.includes(id)) {
@@ -19,12 +21,9 @@ export default function HabistForm({ setNewHabit, config, setReloadPage, reloadP
         } else {
             setSelectedDay([...selectedDay, id]);
         }
-        setInitialState({ habitName, selectedDay });
     }
 
     function cancelNewHabit() {
-        setHabitName(initialState.habitName || "");
-        setSelectedDay(initialState.selectedDay || []);
         setNewHabit(false);
     }
 
@@ -36,7 +35,6 @@ export default function HabistForm({ setNewHabit, config, setReloadPage, reloadP
         }
 
         setDisabled(true);
-        setInitialState({});
 
         axios
             .post(`${URL_API}/habits`, body, config)
@@ -63,7 +61,6 @@ export default function HabistForm({ setNewHabit, config, setReloadPage, reloadP
                     value={habitName}
                     onChange={(e) => {
                         setHabitName(e.target.value)
-                        setInitialState({ ...initialState, habitName: e.target.value })
                     }}
                     disabled={disabled}
                 />

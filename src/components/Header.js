@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import useAuthTo from "../context/useAuthTo";
-import HeaderLogo from "../assets/HeaderLogo.png";
 
 export default function Header() {
 
@@ -9,7 +8,7 @@ export default function Header() {
     return (
         <HeaderContainer  data-test="header">
             <HeaderContent>
-                <img src={HeaderLogo} alt="Logo do cabeçalho" />
+                <p>Trackit</p>
                 <img src={auth.profileImage} alt="imagem de perfil" />
             </HeaderContent>
         </HeaderContainer>
@@ -34,12 +33,15 @@ const HeaderContainer = styled.header`
 export const HeaderContent = styled.div`
     width: 97px;
     height: 49px;
-    img:nth-child(1) {
+    p {
+        font-family: 'Playball', cursive;
+        font-size: 40px;
+        color: #FFFFFF;
+
         position: absolute;
         left: 18px;
-        top: 16px;
     }
-    img:nth-child(2) {
+    img {
         width: 51px;
         height: 51px;
         border-radius: 99px;
