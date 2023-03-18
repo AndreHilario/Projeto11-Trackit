@@ -12,9 +12,6 @@ export default function HabistForm({ setNewHabit, config, setReloadPage, reloadP
     const [selectedDay, setSelectedDay] = useState([]);
     const [disabled, setDisabled] = useState(false);
 
-    console.log(habitName)
-    console.log(selectedDay)
-
     function choseDay(id) {
         if (selectedDay.includes(id)) {
             setSelectedDay(selectedDay.filter((dayId) => dayId !== id));
@@ -23,8 +20,10 @@ export default function HabistForm({ setNewHabit, config, setReloadPage, reloadP
         }
     }
 
-    function cancelNewHabit() {
+    function cancelNewHabit(e) {
+        e.preventDefault();
         setNewHabit(false);
+        return false;
     }
 
     function salveNewHabit() {
@@ -49,7 +48,8 @@ export default function HabistForm({ setNewHabit, config, setReloadPage, reloadP
             .catch((err) => {
                 setDisabled(false)
                 alert(err.response.message)
-            })
+            });
+
     }
 
     return (
@@ -84,7 +84,9 @@ export default function HabistForm({ setNewHabit, config, setReloadPage, reloadP
             </DaysContainer>
             <ButtonsContainer disabled={disabled}>
                 <button data-test="habit-create-cancel-btn" onClick={cancelNewHabit}>Cancelar</button>
-                <button data-test="habit-create-save-btn" onClick={salveNewHabit}>{!disabled ? "Salvar" : <DotsLogin><ThreeDots color="#FFFFFF" /></DotsLogin>}</button>
+                <button data-test="habit-create-save-btn" onClick={salveNewHabit}>
+                    {!disabled ? "Salvar" : <DotsLogin><ThreeDots color="#FFFFFF" /></DotsLogin>}
+                </button>
             </ButtonsContainer>
             <GlobalStyle disabled={disabled} />
         </CreateHabitMenu>

@@ -54,7 +54,12 @@ export default function HabitsPage() {
                     <button data-test="habit-create-btn" onClick={createHabit}>+</button>
                 </MainHeader>
                 <MainContent>
-                    {!newHabit ? "" : <HabistForm setNewHabit={setNewHabit} config={config} setReloadPage={setReloadPage} reloadPage={reloadPage} />}
+                    {!newHabit ? "" : <HabistForm
+                        setNewHabit={setNewHabit}
+                        config={config}
+                        setReloadPage={setReloadPage}
+                        reloadPage={reloadPage}
+                    />}
                     <ContainerHabit>
                         {habits.map((habit) => {
                             return (
@@ -83,7 +88,7 @@ export default function HabitsPage() {
                 </MainContent>
 
             </Main>
-            <Menu percentage={percentage}/>
+            <Menu percentage={percentage} />
         </HabitsContainer>
     )
 }

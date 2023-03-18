@@ -28,10 +28,10 @@ export default function TodayPage() {
         habitsToday.forEach((check) => {
             total++
             { check.done && doneTrue++ }
-        })
+        });
         const percentageUpdated = doneTrue / total * 100;
-        setPercentage(percentageUpdated)
-    }, [habitsToday])
+        setPercentage(percentageUpdated);
+    }, [habitsToday]);
 
     useEffect(() => {
 
@@ -41,7 +41,7 @@ export default function TodayPage() {
                 setHabitsToday(res.data)
             })
             .catch((err) => alert(err.response.message))
-    }, [])
+    }, []);
 
     if (habitsToday.length === 0) {
         return (
@@ -55,7 +55,7 @@ export default function TodayPage() {
                 </TodayContent>
                 <Menu percentage={percentage} />
             </TodayContainer>
-        )
+        );
     }
     function checkHabit(check, id) {
 
@@ -74,7 +74,7 @@ export default function TodayPage() {
                 .then(() => {
                     setHabitsToday(newHabitsToday)
                 })
-                .catch(() => alert("Algo deu errado ao clicar"))
+                .catch(() => alert("Algo deu errado ao clicar"));
         }
         if (check === true) {
             axios
@@ -82,7 +82,7 @@ export default function TodayPage() {
                 .then(() => {
                     setHabitsToday(newHabitsToday)
                 })
-                .catch(() => alert("Algo deu errado ao clicar"))
+                .catch(() => alert("Algo deu errado ao clicar"));
         }
 
     }
@@ -103,8 +103,12 @@ export default function TodayPage() {
                     return (
                         <CheckCard data-test="today-habit-container" key={h.id} concluded={h.done}>
                             <h5 data-test="today-habit-name">{h.name}</h5>
-                            <p data-test="today-habit-sequence">Sequência atual: <Sequence concluded={h.done}>{h.currentSequence} dias</Sequence></p>
-                            <p data-test="today-habit-record">Seu recorde: <Record record={h.highestSequence === h.currentSequence && h.done &&  h.currentSequence > 0}>{h.highestSequence} dias</Record></p>
+                            <p data-test="today-habit-sequence">
+                                Sequência atual: <Sequence concluded={h.done}>{h.currentSequence} dias</Sequence>
+                            </p>
+                            <p data-test="today-habit-record">
+                                Seu recorde: <Record record={h.highestSequence === h.currentSequence && h.done && h.currentSequence > 0}>{h.highestSequence} dias</Record>
+                            </p>
                             <div data-test="today-habit-check-btn" onClick={() => checkHabit(h.done, h.id)}>
                                 <img src={check} />
                             </div>
@@ -114,5 +118,5 @@ export default function TodayPage() {
             </TodayContent>
             <Menu percentage={percentage} />
         </TodayContainer>
-    )
+    );
 }
