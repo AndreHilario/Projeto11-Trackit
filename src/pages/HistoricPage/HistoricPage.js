@@ -1,8 +1,12 @@
 import Header from "../../components/Header";
 import Menu from "../../components/Menu";
 import { HistoricContainer, HistoricContent } from "./styled";
+import useAuthTo from "../../context/useAuthTo";
 
 export default function HistoricPage() {
+
+    const { percentage } = useAuthTo();
+
     return (
         <HistoricContainer>
             <Header />
@@ -10,7 +14,7 @@ export default function HistoricPage() {
                 <h2>Histórico</h2>
                 <p>Em breve você poderá ver o histórico dos seus hábitos aqui!</p>
             </HistoricContent>
-            <Menu />
+            <Menu percentage={percentage}/>
         </HistoricContainer>
     )
 }

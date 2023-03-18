@@ -104,7 +104,7 @@ export default function TodayPage() {
                         <CheckCard data-test="today-habit-container" key={h.id} concluded={h.done}>
                             <h5 data-test="today-habit-name">{h.name}</h5>
                             <p data-test="today-habit-sequence">Sequência atual: <Sequence concluded={h.done}>{h.currentSequence} dias</Sequence></p>
-                            <p data-test="today-habit-record">Seu recorde: <Record record={h.currentSequence === h.highestSequence && h.done}>{h.highestSequence} dias</Record></p>
+                            <p data-test="today-habit-record">Seu recorde: <Record record={h.highestSequence === h.currentSequence && h.done &&  h.currentSequence > 0}>{h.highestSequence} dias</Record></p>
                             <div data-test="today-habit-check-btn" onClick={() => checkHabit(h.done, h.id)}>
                                 <img src={check} />
                             </div>
