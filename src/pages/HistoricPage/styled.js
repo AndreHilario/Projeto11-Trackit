@@ -4,7 +4,7 @@ export const HistoricContainer = styled.div`
     background-color: #E5E5E5;
     height: 1000px;
     padding-top: 98px;
-`
+`;
 
 export const HistoricContent = styled.div`
     display: flex;
@@ -16,4 +16,4 @@ export const HistoricContent = styled.div`
         line-height: 23px;
         margin-top: 17px;
     }
-`
+`;

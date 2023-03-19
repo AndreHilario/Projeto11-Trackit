@@ -1,10 +1,10 @@
 import { createContext, useState } from "react";
 import React from 'react';
 
-const AuthContext = createContext({})
+const AuthContext = createContext({});
 
 export function AuthSupplier ({ children }) {
-    const [auth, setAuth] = useState({})
+    const [auth, setAuth] = useState({});
     const [percentage, setPercentage] = useState(100);
 
     return (

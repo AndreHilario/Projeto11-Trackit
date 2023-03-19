@@ -27,23 +27,23 @@ export default function HabitsPage() {
         axios
             .get(`${URL_API}/habits`, config)
             .then((res) => setHabits(res.data))
-            .catch((err) => console.log(err.response))
+            .catch((err) => console.log(err.response));
     }, [reloadPage])
 
     function createHabit() {
-        setNewHabit(true)
+        setNewHabit(true);
     }
 
     function deleteHabits(id) {
-        let mensagem = "Você realmente gostaria de apagar o hábito?"
+        let mensagem = "Você realmente gostaria de apagar o hábito?";
         if (window.confirm(mensagem)) {
             axios
                 .delete(`${URL_API}/habits/${id}`, config)
                 .then(() => {
                     let counter = reloadPage + 1;
-                    setReloadPage(counter)
+                    setReloadPage(counter);
                 })
-                .catch((err) => console.log(err.response.message))
+                .catch((err) => console.log(err.response.message));
         }
     }
     return (

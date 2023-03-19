@@ -10,7 +10,7 @@ export const TodayContent = styled.main`
     display: flex;
     flex-direction: column;
     margin-left: 17px;
-`
+`;
 
 export const CheckCard = styled.div`
     background-color: #FFFFFF;
@@ -47,7 +47,7 @@ export const CheckCard = styled.div`
         top: 13px;
         right: 13px;
     }
-`
+`;
 
 export const MainHeaderToday = styled.div`
     display: flex;
@@ -59,12 +59,12 @@ export const MainHeaderToday = styled.div`
         color: ${(props) => props.percentage ? "#8FC549" : "#BABABA"};
         margin-top: 7px;
     }
-`
+`;
 
 export const Sequence = styled.span`
     color: ${(props) => props.concluded ? "#8FC549" : "#666666"};
-`
+`;
 
 export const Record = styled.span`
     color: ${(props) => props.record ? "#8FC549" : "#666666"};
-`
+`;

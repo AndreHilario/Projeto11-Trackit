@@ -45,7 +45,7 @@ export const MainContent = styled.div`
         line-height: 23px;
         margin-top: 29px;
     } 
-`
+`;
 
 export const CreateHabitMenu = styled.div`
     background-color: #FFFFFF;
@@ -57,16 +57,16 @@ export const CreateHabitMenu = styled.div`
     display: flex;
     flex-direction: column;
     position: relative;
-`
+`;
 export const FormContainer = styled.div`
     margin-top: 18px;
     margin-left: 19px;
-`
+`;
 export const DaysContainer = styled.div`
     display: flex;
     gap: 10px;
     margin-left: 19px;
-`
+`;
 
 export const ButtonDays = styled.button`       
     width: 30px;
@@ -77,7 +77,7 @@ export const ButtonDays = styled.button`
     border-radius: 5px;
     border: ${(props) => !props.selected ? "1px solid #D5D5D5" : "1px solid #CFCFCF"};
     
-`
+`;
 
 export const ButtonsContainer = styled.div`
     display: flex;
@@ -118,7 +118,7 @@ export const ContainerHabit = styled.div`
     display: flex;
     flex-direction: column;
     gap: 10px;
-`
+`;
 
 export const HabitInfos = styled.div`
     color: #666666;
@@ -154,4 +154,4 @@ export const DaysContainerCreated = styled.div`
     gap: 5px;
     margin-left: 14px;
     margin-top: 46px;
-`
+`;

@@ -49,4 +49,4 @@ export const HeaderContent = styled.div`
         position: absolute;
         right: 10px;
     }
-` 
+`;
