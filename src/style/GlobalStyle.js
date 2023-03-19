@@ -22,7 +22,7 @@ const GlobalStyle = createGlobalStyle`
 		        color: #DBDBDB;
 	        }
             :focus {
-                background: #F0FFFF;
+                background: #FFFFFF;
                 outline: solid 1.5px #52B6FF;
             } 
     }

@@ -41,8 +41,6 @@ export default function LoginForm() {
             })
     }
 
-    console.log(form)
-
     return (
         <FormLoginContainer onSubmit={sendLogin}>
             <input

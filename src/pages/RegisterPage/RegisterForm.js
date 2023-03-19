@@ -35,7 +35,6 @@ export default function RegisterForm() {
                 alert(err.response.data.message)
             })
     }
-    console.log(form)
 
     return (
         <FormRegisterContainer onSubmit={sendInfoProfile}>
