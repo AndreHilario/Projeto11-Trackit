@@ -32,8 +32,11 @@ export default function RegisterForm() {
             })
             .catch((err) => {
                 setDisabled(false);
-                const errors = err.response.data.details.map(error => `- ${error}`).join("\n");
-                alert(`Erro ao cadastrar e-mail ou imagem de perfil:\n${errors}`);
+                alert(`${err.response.data.message}
+
+E-mail já cadastrado ou inválido
+ou
+URL da imagem inválida!`);
             });
     }
 
