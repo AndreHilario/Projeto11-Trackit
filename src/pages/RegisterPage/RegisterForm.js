@@ -34,7 +34,7 @@ export default function RegisterForm() {
                 setDisabled(false);
                 alert(`${err.response.data.message}
 
-E-mail já cadastrado ou inválido
+E-mail já cadastrado/inválido
 ou
 URL da imagem inválida!`);
             });
