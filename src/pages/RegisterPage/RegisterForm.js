@@ -32,8 +32,9 @@ export default function RegisterForm() {
             })
             .catch((err) => {
                 setDisabled(false);
-                alert(err.response.data.message)
-            })
+                const errors = err.response.data.details.map(error => `- ${error}`).join("\n");
+                alert(`Erro ao cadastrar e-mail ou imagem de perfil:\n${errors}`);
+            });
     }
 
     return (
@@ -83,5 +84,5 @@ export default function RegisterForm() {
             </ButtonRegister>
             <GlobalStyle disabled={disabled} />
         </FormRegisterContainer>
-    )
+    );
 }

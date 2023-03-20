@@ -38,16 +38,16 @@ export default function HabistForm(props) {
         axios
             .post(`${URL_API}/habits`, body, config)
             .then(() => {
-                setDisabled(false)
-                setHabitName("")
-                setSelectedDay([])
-                setNewHabit(false)
+                setDisabled(false);
+                setHabitName("");
+                setSelectedDay([]);
+                setNewHabit(false);
                 let counter = reloadPage + 1;
-                setReloadPage(counter)
+                setReloadPage(counter);
             })
-            .catch((err) => {
-                setDisabled(false)
-                alert(err.response.message)
+            .catch(() => {
+                setDisabled(false);
+                alert("Algo deu errado ao criar, tente criar novamente");
             });
 
     }
