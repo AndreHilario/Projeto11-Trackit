@@ -59,24 +59,20 @@ export default function HabistForm(props) {
                     data-test="habit-name-input"
                     placeholder="nome do hábito"
                     value={habitName}
-                    onChange={(e) => {
-                        setHabitName(e.target.value)
-                    }}
+                    onChange={(e) => setHabitName(e.target.value)}
                     disabled={disabled}
                 />
             </FormContainer>
             <DaysContainer>
                 {idDays.map((day) => {
-                    const select = selectedDay.includes(day.id)
+                    const select = selectedDay.includes(day.id);
                     return (
                         <ButtonDays
                             data-test="habit-day"
                             disabled={disabled}
                             selected={select}
                             key={day.id}
-                            onClick={() => {
-                                choseDay(day.id)
-                            }}>
+                            onClick={() => choseDay(day.id)}>
                             {day.name}
                         </ButtonDays>
                     )
