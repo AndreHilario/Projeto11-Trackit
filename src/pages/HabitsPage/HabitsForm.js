@@ -1,14 +1,16 @@
 import { CreateHabitMenu, DaysContainer, FormContainer, ButtonDays, ButtonsContainer, DotsLogin } from "./styled";
 import { idDays } from "../../constants/days";
 import { useState } from "react";
-import axios from "axios";
-import { URL_API } from "../../constants/urls";
 import { ThreeDots } from "react-loader-spinner";
 import GlobalStyle from "../../style/GlobalStyle";
+import { usePostHabits } from "../../hooks/api/useHabits";
+import useAuthTo from "../../context/useAuthTo";
 
 export default function HabistForm(props) {
 
-    const { setNewHabit, config, setReloadPage, reloadPage, habitName, setHabitName, selectedDay, setSelectedDay } = props;
+    const { setNewHabit, setHabits, habits, habitName, setHabitName, selectedDay, setSelectedDay } = props;
+    const { createHabit } = usePostHabits();
+    const { auth } = useAuthTo();
 
     const [disabled, setDisabled] = useState(false);
 
@@ -26,7 +28,7 @@ export default function HabistForm(props) {
         return false;
     }
 
-    function salveNewHabit() {
+    async function salveNewHabit() {
 
         const body = {
             name: habitName,
@@ -35,21 +37,18 @@ export default function HabistForm(props) {
 
         setDisabled(true);
 
-        axios
-            .post(`${URL_API}/habits`, body, config)
-            .then(() => {
-                setDisabled(false);
-                setHabitName("");
-                setSelectedDay([]);
-                setNewHabit(false);
-                let counter = reloadPage + 1;
-                setReloadPage(counter);
-            })
-            .catch(() => {
-                setDisabled(false);
-                alert("Algo deu errado ao criar, tente criar novamente");
-            });
-
+        try {
+            await createHabit(auth.getToken, body);
+            setDisabled(false);
+            setHabitName("");
+            setSelectedDay([]);
+            setNewHabit(false);
+            const newHabit = { name: habitName, days: selectedDay };
+            setHabits([...habits, newHabit]);
+        } catch (error) {
+            setDisabled(false);
+            alert("Algo deu errado ao criar, tente criar novamente");
+        }
     }
 
     return (

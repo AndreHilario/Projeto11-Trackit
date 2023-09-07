@@ -1,11 +1,10 @@
-import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { URL_API } from "../../constants/urls";
 import { ButtonLogin, FormLoginContainer, DotsLogin } from "./styled";
 import { ThreeDots } from "react-loader-spinner";
 import useAuthTo from "../../context/useAuthTo";
 import GlobalStyle from "../../style/GlobalStyle";
+import useSignIn from "../../hooks/api/useAuth";
 
 export default function LoginForm() {
 
@@ -14,6 +13,7 @@ export default function LoginForm() {
 
     const { email, password } = form;
     const { setAuth } = useAuthTo();
+    const { signIn } = useSignIn();
 
     const navigate = useNavigate();
 
@@ -21,24 +21,22 @@ export default function LoginForm() {
         setForm({ ...form, [e.target.name]: e.target.value })
     }
 
-    function sendLogin(e) {
+    async function sendLogin(e) {
         e.preventDefault()
 
         setDisabled(true);
 
-        axios
-            .post(`${URL_API}/auth/login`, form)
-            .then((res) => {
-                setDisabled(false);
-                const getToken = res.data.token;
-                const profileImage = res.data.image;
-                setAuth({getToken, profileImage})
-                navigate("/hoje")
-            })
-            .catch((err) => {
-                setDisabled(false);
-                alert("Senha ou usuário inválidos")
-            })
+        try {
+            const res = await signIn(email, password);
+            setDisabled(false);
+            const getToken = res.token;
+            const profileImage = res.image;
+            setAuth({ getToken, profileImage });
+            navigate("/hoje");
+        } catch (error) {
+            setDisabled(false);
+            alert("Senha ou usuário inválidos");
+        }
     }
 
     return (
@@ -67,7 +65,7 @@ export default function LoginForm() {
             <ButtonLogin data-test="login-btn" type="submit" disabled={disabled}>
                 {!disabled ? "Entrar" : <DotsLogin><ThreeDots color="#FFFFFF" /></DotsLogin>}
             </ButtonLogin>
-            <GlobalStyle disabled={disabled}/>
+            <GlobalStyle disabled={disabled} />
         </FormLoginContainer>
-    )
+    );
 }
