@@ -1,13 +1,52 @@
 # Trackit
 _The Habit Tracker is a comprehensive web application designed to help users establish and monitor their daily habits effectively. It also incorporates secure storage for personal information and provides a seamless user experience_. 
+<table>
+  <tr>
+    <td align="center">
+      <img src="./src/assets/signup.png" height="300" width="216" />
+      <br />
+      Registration Screen
+    </td>
+    <td align="center">
+      <img src="./src/assets/signin.png" height="300" width="216" />
+      <br />
+      Login Screen
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="./src/assets/semhabitos.png" height="320" />
+      <br />
+      Habits Screen
+    </td>
+    <td align="center">
+      <img src="./src/assets/criarhabitos.png" height="320" />
+      <br />
+      Create Habits
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="./src/assets/maishabitos.png" height="320" />
+      <br />
+      All habits
+    </td>
+    <td align="center">
+      <img src="./src/assets/hoje.png" height="320" />
+      <br />
+      Today Screen
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="./src/assets/historico.png" height="320" />
+      <br />
+      History Screen
+    </td>
+    <td></td>
+  </tr>
+</table>
 
-<img src="./src/assets/signup.png" height="300" width="216" />
-<img src="./src/assets/signin.png" height="300" width="216" />
-<img src="./src/assets/semhabitos.png" height="320" />
-<img src="./src/assets/criarhabitos.png" height="320" />
-<img src="./src/assets/maishabitos.png" height="320" />
-<img src="./src/assets/hoje.png" height="320" />
-<img src="./src/assets/historico.png" height="320" />
 
 
 Try it out now in front-end at https://projeto11-trackit-alpha-eight.vercel.app/
