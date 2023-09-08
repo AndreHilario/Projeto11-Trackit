@@ -30,7 +30,7 @@ export default function HabitsPage() {
             }
         }
         fetchData();
-    }, [getHabits, auth.getToken, habits]);
+    }, [getHabits, auth.getToken, habits, newHabit]);
 
     function createHabit() {
         setNewHabit(true);
